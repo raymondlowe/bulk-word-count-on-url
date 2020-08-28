@@ -2,9 +2,9 @@
 
 Check how many "Words" there are on a url or list of urls.
 
-By default checks the <body>, but can be also used to check <p> or <article> or any other item that may more accurately reflect what the actual content is.
+By default checks the body gag, but can be also used to check p or article or any other item that may more accurately reflect what the actual content is.
 
-Simplistic definition of word is "string separated by space".
+Word separation done using regex search so handles spaces and punctuation.
 
 ##installation:
 
