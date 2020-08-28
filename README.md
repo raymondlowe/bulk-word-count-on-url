@@ -9,6 +9,8 @@ Word separation done using regex search so handles spaces and punctuation.
 ## installation:
 
 ```
+git clone https://github.com/raymondlowe/bulk-word-count-on-url.git
+cd bulk-word-count-on-url
 pip3 install -r requirements.txt
 ```
 
