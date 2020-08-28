@@ -6,19 +6,19 @@ By default checks the body gag, but can be also used to check p or article or an
 
 Word separation done using regex search so handles spaces and punctuation.
 
-##installation:
+## installation:
 
 ```
 pip3 install -r requirements.txt
 ```
 
-##usage:
+## usage:
 
 ```
 python3 wc-url.py [url|file-of-urls.txt] [-t|--tag body|p|p,h1,li|<other valid list of elements>]
 ```
 
-##Example:
+## Example:
 
 ```
 python3 wc-url.py example.txt --tags p 
@@ -39,7 +39,7 @@ Because there are 26 words within the paragraphs of the page.
 
 Includes caching, delete the file wc-url-cache.sqlite to clear the cache.
 
-###Caution:
+### Caution:
 
 It will double count if you choose tags that may be inside one another. e.g. --tags body,p
 
