@@ -1,1 +1,3 @@
 validators
+requests_cache
+beautifulsoup4
