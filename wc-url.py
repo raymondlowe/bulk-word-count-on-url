@@ -19,6 +19,7 @@ if urlvalidator(urlorfile):
 else:
     with open(urlorfile) as f:
         urls = f.readlines()
+    urls = [x.strip() for x in urls] 
 
 print(urls)
 
