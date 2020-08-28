@@ -1,3 +1,4 @@
+import os.path
 import argparse
 from validators import url as urlvalidator
 
@@ -17,9 +18,12 @@ tags = args.tags
 if urlvalidator(urlorfile):
     urls = [urlorfile]
 else:
-    with open(urlorfile) as f:
-        urls = f.readlines()
-    urls = [x.strip() for x in urls] 
+    if os.path.isfile(urlorfile):
+        with open(urlorfile) as f:
+            urls = f.readlines()
+        urls = [x.strip() for x in urls] 
+    else:
+        Exception('Not URL or file')
 
 print(urls)
 
