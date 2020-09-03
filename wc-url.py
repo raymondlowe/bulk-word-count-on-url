@@ -1,4 +1,7 @@
 import os.path
+ 
+import sys
+ 
 import argparse
 import requests
 import requests_cache
@@ -35,22 +38,46 @@ def main():
     taglist = tags.split(",")
 
     for url in urls:    
-        page = requests.get(url)        
-        # soup = BeautifulSoup(page.text, features="html.parser")
-        soup = BeautifulSoup(page.text, features="lxml")
+ 
+        try:
+            page = requests.get(url)
 
-        text = ''
-        for tag in taglist:
-            contentslist = soup.find_all(tag)
-            for elem in contentslist:
-                text = text + ' ' + elem.getText()
-        
-        wordlist = re.findall(r"[\w']+", text)
+            # soup = BeautifulSoup(page.text, features="html.parser")
+            soup = BeautifulSoup(page.text, features="lxml")
 
-        wc = len(wordlist)
+            text = ''
+            for tag in taglist:
+                contentslist = soup.find_all(tag)
+                for elem in contentslist:
+                    text = text + ' ' + elem.getText()
+            
+            wordlist = re.findall(r"[\w']+", text)
 
-        print('"' + url + '",', wc)
+            wc = len(wordlist)
 
+            print('"' + url + '",', wc)
+
+        except:
+            print("failed to load "+url+": retrying", file=sys.stderr)
+           
+            page = requests.get(url, verify=False)
+
+            # soup = BeautifulSoup(page.text, features="html.parser")
+            soup = BeautifulSoup(page.text, features="lxml")
+
+            text = ''
+            for tag in taglist:
+                contentslist = soup.find_all(tag)
+                for elem in contentslist:
+                    text = text + ' ' + elem.getText()
+            
+            wordlist = re.findall(r"[\w']+", text)
+
+            wc = len(wordlist)
+
+            print('"' + url + '",', wc)
+
+ 
 
     print("--end--")
 
