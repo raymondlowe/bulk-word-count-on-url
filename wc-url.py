@@ -1,5 +1,7 @@
 import os.path
+ 
 import sys
+ 
 import argparse
 import requests
 import requests_cache
@@ -36,6 +38,7 @@ def main():
     taglist = tags.split(",")
 
     for url in urls:    
+ 
         try:
             page = requests.get(url)
 
@@ -74,7 +77,7 @@ def main():
 
             print('"' + url + '",', wc)
 
-            
+ 
 
     print("--end--")
 

@@ -41,6 +41,7 @@ Because there are 26 words within the paragraphs of the page.
 
 Includes caching, delete the file wc-url-cache.sqlite to clear the cache.
 
+ 
 ## Troubleshoot ssl errors
 
 ```
@@ -50,6 +51,7 @@ pip3 install --upgrade requests
 export PYTHONWARNINGS="ignore:Unverified HTTPS request".
 ```
 
+ r
 ### Caution:
 
 It will double count if you choose tags that may be inside one another. e.g. --tags body,p
